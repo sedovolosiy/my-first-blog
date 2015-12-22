@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}ITBursa информация о студенте{% endblock title %}
+{% block stud_active %}active{% endblock %}
+{% block content %}
+<div class="jumbotron">
+      <div class="container">
+      <div class="col-md-12">
+        <h1>Рожков Павел</h1>
+        <div class="col-md-8">
+        <img class="avatar" src="{% static 'images/student_avatar.png' %}">
+        </div>
+        <div class="col-md-8">
+        <button type="button" class="btn btn-lg btn-success btn-o-sebe">Студент о себе</button>
+        <h3>Student's cards</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table tbl">
+           <tbody>
+              <tr class="pod">
+                <td class="tbl">Surname</td>
+                <td class="tbl">Рожков</td>
+              </tr>
+              <tr class="pod" >
+                <td class="tbl">Name</td>
+                <td class="tbl">Павел</td>
+              </tr>
+              <tr class="pod" >
+                <td class="tbl">Patronymic</td>
+                <td class="tbl">Геннадиевич</td>
+              </tr>
+              <tr  class="pod">
+                <td class="tbl">Birth Date</td>
+                <td class="tbl">26.02.1994</td>
+              </tr>
+              <tr class="pod" >
+                <td class="tbl">Address</td>
+                <td class="tbl">г. Усть-Джегута, ул. Бауманская, дом 34, квартира 48</td>
+              </tr>
+              <tr class="pod" >
+                <td class="tbl">E-mail</td>
+                <td class="tbl">tayskiyostap287@gmail.com</td>
+              </tr>
+              <tr class="pod" >
+                <td class="tbl">Skype</td>
+                <td class="tbl">TayskiyOstap287</td>
+              </tr>
+              <tr  class="pod">
+                <td class="tbl">Package</td>
+                <td class="tbl">Standart</td>
+              </tr>
+              <tr class="pod" >
+                <td class="tbl">Average Grade</td>
+                <td class="tbl">100%</td>
+              </tr>
+              <tr  class="pod">
+                <td class="tbl">Ratingv</td>
+                <td class="tbl">1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <table class="table tbl">
+      
+           <tbody>
+           <tr  class="pod">
+              <td class="tbl">Course</td>
+              <td class="tbl">Week</td>
+              <td class="tbl">Control type</td>
+              <td class="tbl">Grade</td>
+            </tr>
+              <tr >
+                <td class="tbl" rowspan="4">Python Введение</td>
+                <td class="tbl" rowspan="2">Week1</td>
+                <td class="tbl">Tests</td>
+                <td class="tbl">100</td>
+              </tr>
+              <tr >                
+                <td class="tbl">Problem Task 1</td>
+                <td class="tbl">100</td>
+              </tr>
+              <tr >              
+                <td class="tbl" rowspan="2">Week2</td>  
+                <td class="tbl">Tests</td>
+                <td class="tbl">100</td>
+              </tr> 
+              <tr >                
+                <td class="tbl">Problem Task 2</td>
+                <td class="tbl">100</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>  
+{% endblock content %}

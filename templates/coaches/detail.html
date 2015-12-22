@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ITBursa информация о преподавателе{% endblock title %}
+
+
+{% block stud_active %}active{% endblock stud_active %}
+
+
+{% block content %}
+    <div class="jumbotron">
+      <div class="container">
+        <div class="col-md-12">
+        
+          <h1>{{ coach.full_name }}</h1>        
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <table class="table tbl">
+             <tbody>
+               <tr class="pod">
+                  <td class="tbl">дата рождения</td>
+                  <td class="tbl">{{ coach.date_of_birth|date:"d F, Y" }}</td>
+                </tr>
+                <tr class="pod" >
+                  <td class="tbl">адрес</td>
+                  <td class="tbl">{{ coach.address }}</td>
+                </tr>
+                <tr class="pod" >
+                  <td class="tbl">почта</td>
+                  <td class="tbl">{{ coach.email }}</td>
+                </tr>
+                <tr class="pod" >
+                  <td class="tbl">логин skype</td>
+                  <td class="tbl">{{ coach.skype }}</td>
+                </tr>
+                <tr class="pod">
+                  <td class="tbl">телефон</td>
+                  <td class="tbl">{{ coach.phone }}</td>
+                </tr>
+                
+                <tr class="pod">
+          <td class="tbl"> курсы учитель</td>
+          <td class="tbl">  {% for course in coach.courses_coach %}
+            <p><a href="{% url 'courses:detail' course.id %}">{{ course  }}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-share-alt"></span></a></p>
+            {% endfor %}</td>
+        </tr>
+        <tr class="pod">
+          <td class="tbl"> курсы ассистент</td>
+          <td class="tbl">  {% for course in coach.courses_assistant %}
+            <p><a href="{% url 'courses:detail' course.id %}"> {{ course  }}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-share-alt"></span></a></p>
+            {% endfor %}</td>
+        </tr>
+              </tbody>
+            </table>
+          </div>    
+        </div>
+      </div>
+    </div>
+  {% endblock content %}

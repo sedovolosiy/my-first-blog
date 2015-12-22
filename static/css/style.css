@@ -1,0 +1,75 @@
+img.logo {
+    height: 45px;
+    margin-top: -10%
+}
+.jumbotron {
+    background-color: rgba(255, 255, 255, 0.7); 
+    
+}
+body {
+    background-image: url(../images/fon.jpg);
+}
+.photo {
+    opacity: 1;
+    padding-top: 25px;
+}
+#dir {
+    height: 300px
+}
+#manager {
+    height: 250px
+}
+.name {
+    color: red;
+}
+.skype {
+    color: blue;
+}
+.phone {
+    text-decoration: underline;
+}
+.tdfunc {
+    font: 18pt serif;
+    text-align: center;
+}
+.first {
+    color: blue;
+    vertical-align: middle;
+}
+.glav {
+    text-decoration: underline;
+    color: red
+}
+.newfooter {
+    background-color: black;
+    text-align: center;
+}
+.firma {
+    color: green;
+}
+#prava {
+    text-shadow: 1px 1px 2px black, 0 0 1em red;
+}
+.contact {
+    color: red;
+    text-decoration: underline;
+    font: 16pt serif;
+}
+.courses {
+    color: yellow;
+    text-shadow: 1px 1px 2px black, 0 0 1em red;
+    text-decoration: underline;
+    font: 16pt serif;
+}
+.avatar{
+height: 160px;
+float: left;
+margin-bottom: 15px
+}
+.tbl{
+    border:1px double black;
+}
+tr.pod:nth-child(odd){
+    background-color: rgba(253, 255, 220, 0.6);    
+    color: black
+}

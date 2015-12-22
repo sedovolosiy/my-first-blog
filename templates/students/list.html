@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ITBursa информация о студенте{% endblock title %}
+
+
+{% block stud_active %}active{% endblock stud_active %}
+
+
+{% block content %}
+    <div class="jumbotron">
+      <div class="container">
+        <div class="col-md-12">
+          <h3>Список студентов</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+        {% if messages %}
+        <div class="alert alert-success" role="alert">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+        {% endif %}
+        <a href="{% url 'students:add' %}"><button class="glyphicon glyphicon-plus btn btn-success">Добавить пользователя</button></a>
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="panel-heading">#</th>
+                <th class="panel-heading">Фамилия и имя</th>
+                <th class="panel-heading">Адрес</th>
+                <th class="panel-heading">skype</th>
+                <th class="panel-heading">Курсы</th>
+                <th class="panel-heading"></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for student in students %}
+              <tr>
+                <td class="first">{{ student.id }}</td>
+                <td class="tdfunc"><a href="{% url 'students:detail' student.id %}">{{ student.name }} {{ student.surname }}</a></td>
+                <td class="tdfunc">{{ student.address }}</td>
+                <td class="tdfunc">{{ student.skype }}</td>
+                <td> {% for s_courses in student.courses.all%}
+                  <a href="{% url 'courses:detail' s_courses.id %}">{{ s_courses  }}</a>
+                  {% endfor %}
+                </td>
+                <td>
+                  <a href="{% url 'students:edit' student.id %}">
+                    <button class="glyphicon glyphicon-pencil btn btn-success">Изменить</button>
+                  </a>
+                </td>
+                <td>
+                  <a href="{% url 'students:remove' student.id %}">
+                    <button class="glyphicon glyphicon-remove btn btn-success">Удалить</button>
+                  </a>
+                </td>
+              </tr>
+            {% endfor %}
+           
+            </tbody>
+          </table>
+          
+
+
+<nav>
+  <ul class="pagination">
+   {% if page_obj.has_previous %}        
+    <li>
+      <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    {% endif %}
+    
+    {% if page_obj.has_next %}
+    <li>
+      <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

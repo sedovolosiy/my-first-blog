@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ITBursa информация о курсе{% endblock title %}
+
+
+{% block stud_active %}active{% endblock stud_active %}
+{% block students %}{% url 'students:list_view' %}?course_id={{course.id}}{% endblock %}
+
+{% block content %}    
+<div class="jumbotron">
+{% if messages %}
+        <div class="alert alert-success" role="alert">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+        {% endif %}  
+
+    <div class="container">
+        <div class="col-md-12">
+            <h1>{{ course }}</h1>
+            <h3>{{ course.description|truncatechars:32 }}</h3>
+        </div>
+    </div>      
+      {% include "include/coach_include.html" with block_title="Преподаватель" instructor=course.coach %}            
+      {% include "include/coach_include.html" with block_title="Ассистент" instructor=course.assistant %}
+      <a href="{% url 'courses:add_lesson' course.id %}"><button class="glyphicon glyphicon-plus btn btn-success">Добавить занятие</button></a>      
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="panel-heading">#</th>
+                        <th class="panel-heading">Тема</th>
+                        <th class="panel-heading">Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+            {% for c in lessons %}
+              
+                    <tr>
+                        <td class="first">{{ c.order }}</td>
+                        <td class="tdfunc">{{ c }}</td>
+                        <td>{{ c.description }}</td>
+                    </tr>
+            {% endfor %}
+           
+            
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

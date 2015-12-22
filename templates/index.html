@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block index_active %}active{% endblock index_active %}
+
+
+{% block title %}ITBursa Главная{% endblock title %}
+
+
+{% block content %}
+    <div class="jumbotron">  
+    {% if messages %}
+        <div class="alert alert-success" role="alert">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+        {% endif %}  
+      <div class="container">
+      
+        <h1>Description PyBursa</h1>
+      </div>
+      <p>
+        Курсы ItBursa начали работу в 2014 году. Мы специализируемся на <span class="glav">«модных» </span>языках программирования. Принципиальное наше отличие от других курсов – <span class="glav">максимум практики</span> и жесткая система обязательных домашних заданий.</p>
+      <p>
+        Преподаватели – опытные практикующие разработчики, они помогают участникам в ходе курсов создать реальные проекты и получить практические навыки, применимые к работе. Домашние задания на наших курсах обязательны и их невыполнение приводит к исключению с курсов. Таким образом, мы готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать пусть простые, но рабочие проекты.
+      </p>
+      <p>
+        За более детальной информацией можно обратиться по номерам указанным в <a class="text-primary" href="contact.html">контактах</a>
+      </p>
+      <p>
+        Чтобы посмотреть список курсов который на данный момент проходят в ItBursa <a class="text-info" href="http://itbursa.com/">нажмите здесь</a>
+      </p>
+      <div class="page-header">
+        <div class="container">
+          <h1>Выбирай любой курс</h1>
+        </div>
+         <a href="{% url 'courses:add' %}"><button class="glyphicon glyphicon-plus btn btn-success">Добавить курс</button></a>
+      </div>
+      <div class="row">
+
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="panel-heading">Курс</th>
+                <th class="panel-heading">Описание</th>
+                <th class="panel-heading"></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for c in course %}
+              <tr>                
+              <td class="tdfunc"><a href="{% url 'courses:detail' c.id %} ">{{ c|upper }}</a></td>
+                <td>
+                  {{ c.short_description|title }}
+                </td>
+                <td>
+                  <a href="{% url 'courses:edit' c.id %}">
+                    <button class="glyphicon glyphicon-pencil btn btn-success">Изменить</button>
+                  </a>
+                </td>
+                <td>
+                  <a href="{% url 'courses:remove' c.id %}">
+                    <button class="glyphicon glyphicon-remove btn btn-success">Удалить</button>
+                  </a>
+                </td>
+              </tr>
+              
+            {% endfor %}           
+            </tbody>
+          </table>
+        </div>
+      </div>      
+    </div>
+{% endblock content %}

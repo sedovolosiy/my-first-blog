@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ITBursa информация о студенте{% endblock title %}
+
+
+{% block stud_active %}active{% endblock stud_active %}
+
+
+{% block content %}
+    <div class="jumbotron">
+      <div class="container">
+      <div class="col-md-12">
+      
+        <h1>{{ stud.name }} {{ stud.surname }}</h1>        
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table tbl">
+           <tbody>
+             <tr class="pod">
+                <td class="tbl">дата рождения</td>
+                <td class="tbl">{{ stud.date_of_birth }}</td>
+              </tr>
+              <tr class="pod" >
+                <td class="tbl">адрес</td>
+                <td class="tbl">{{ stud.address }}</td>
+              </tr>
+              <tr class="pod" >
+                <td class="tbl">почта</td>
+                <td class="tbl">{{ stud.email }}</td>
+              </tr>
+              <tr class="pod" >
+                <td class="tbl">логин skype</td>
+                <td class="tbl">{{ stud.skype }}</td>
+              </tr>
+              <tr>
+                <td class="tbl">телефон</td>
+                <td class="tbl">{{ stud.phone }}</td>
+              </tr>
+              
+              <tr class="pod" >
+                <td class="tbl">курсы</td>
+                <td>
+                 {% for course in stud.courses_id %}
+                  <a href="{% url 'courses:detail' course.id %}">{{ course  }}</a>
+                  {% endfor %}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

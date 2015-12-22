@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ITBursa Контакты{% endblock title %}
+
+
+{% block contact_active %}active{% endblock contact_active %}
+
+
+  {% block content %}
+    <div class="jumbotron">
+      <div class="col-sm-6">
+        <h1>Director</h1>
+        <p>
+          Name: <span class="name">Соболев Георгий Григорьевич</span>
+          <br> Skype:
+          <span class="skype">sobolevgeorgiy45</span>
+          <br>
+          <u class="courses">Email:sobolevgeorgiy45@gmail.com</u>
+          <br> Phone:
+          <span class="phone">8 (945) 825-33-72</span>
+          <br>
+        </p>
+      </div>
+      <div class="col-sm-6">
+        <img class="photo" src="{% static 'images/director.png' %}" id="dir">
+      </div>
+      <div class="col-sm-6">
+        <h1>Founder</h1>
+        <p>
+          Name: <span class="name">Филиппова Татьяна Федоровна</span>
+          <br> Skype:
+          <span class="skype">FilippovaTatyana391</span>
+          <br> Email:filippovatatyana391@gmail.com
+          <br> Phone:
+          <span class="phone">8 (950) 186-92-74</span>
+          <br>
+        </p>
+      </div>
+      <div class="col-sm-6">
+        <img class="photo" src="{% static 'images/manager.png' %}" id="manager">
+      </div>
+      <div>
+        <h1>Manager</h1>
+        <p>
+          Name: <span class="name">Миронов Вениамин Макарович</span>
+          <br> Skype:
+          <span class="skype">MironovVeniamin59</span>
+          <br> Email:mronovveniamin595@gmail.com
+          <br> Phone:
+          <span class="phone">8 (935) 908-42-52</span>
+          <br>
+        </p>
+      </div>
+    </div>
+  {% endblock content %}
+  

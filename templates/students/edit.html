@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{title}}{% endblock title %}
+
+
+{% block stud_active %}active{% endblock stud_active %}
+
+
+{% block content %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="col-md-12">
+      <h3>Изменение профиля студента</h3>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Изменить">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

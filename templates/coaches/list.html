@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ITBursa информация о студенте{% endblock title %}
+
+
+{% block stud_active %}active{% endblock stud_active %}
+
+
+{% block content %}
+    <div class="jumbotron">
+      <div class="container">
+        <div class="col-md-12">
+          <h3>Список студентов</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="panel-heading">#</th>
+                <th class="panel-heading">Фамилия и имя</th>
+                <th class="panel-heading">Адрес</th>
+                <th class="panel-heading">skype</th>
+                <th class="panel-heading">Курсы</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for c in student %}
+              <tr>
+                <td class="first">{{ c.id }}</td>
+                <td class="tdfunc"><a href="{% url 'students:detail' c.id %}">{{ c.name }} {{ c.surname }}</a></td>
+                <td class="tdfunc">{{ c.address }}</td>
+                <td class="tdfunc">{{ c.skype }}</td>
+                <td> {% for s_courses in c.courses_id %}
+                  <p><a href="{% url 'courses:detail' s_courses.id %}">{{ s_courses  }}</a></p>
+                  {% endfor %}
+                </td>
+              </tr>
+            {% endfor %}
+           
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  {% endblock content %}

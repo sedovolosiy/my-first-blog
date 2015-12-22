@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ITBursa изменение курса{% endblock title %}
+
+
+{% block stud_active %}active{% endblock stud_active %}
+
+
+{% block content %}
+<div class="jumbotron">
+  <div class="container">
+  <h3>{{title}}</h3>
+  {% if messages %}
+        <div class="alert alert-success" role="alert">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+        {% endif %}
+    <div class="col-md-12">
+
+      <h3>Изменение курса</h3>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Изменить">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
