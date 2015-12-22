@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'xu1&h)c4#(qhsu1n6lcb^%n+e41nrwu(dcg5la_c5jazs7q=d8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -87,8 +87,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-TEMPLATE_DIRS=(os.path.join(BASE_DIR, 'templates'), )
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+STATIC_ROOT = (os.path.join(BASE_DIR, "assets"))
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 ADMINS = (('Vlad','test@gmail.com'), ('t2','test2@gmail.com'))
@@ -132,5 +137,5 @@ LOGGING = {
             'format': '%(levelname)s %(message)s'
         },
     },
-    
+
 }

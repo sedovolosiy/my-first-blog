@@ -9,7 +9,7 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>{% block title %}{% endblock title %}</title>
   <!-- Bootstrap -->
-  
+
   <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -32,7 +32,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="{% url 'index' %}">
-          <img class="logo" alt="Logo" src="{% static 'images/logo.svg' %}">
+          <img class="logo" alt="Logo" src="{% static 'images/logo.png' %}">
         </a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
@@ -51,7 +51,7 @@
     {% block content %}{% endblock content %}
   </div>
   <div class="panel-footer newfooter">
-    Сайт компании <span class="firma">ООО"блбаба"</span>. <span id="prava">Все права защищены</span>
+    <span class="firma">IT Bursa</span>. <span id="prava">PyBursa|RubyBursa|JavaBursa|BasicBursa</span>
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
