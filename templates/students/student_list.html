@@ -13,12 +13,12 @@
 {% block content %}
     <div class="jumbotron">
       <div class="container">
-        <div class="col-md-12">
+        <div class="page-header">
           <h3>Список студентов</h3>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
         {% if messages %}
         <div class="alert alert-success" role="alert">
           {% for message in messages %}
@@ -27,7 +27,7 @@
         </div>
         {% endif %}
         <a href="{% url 'students:add' %}"><button class="glyphicon glyphicon-plus btn btn-success">Добавить пользователя</button></a>
-          <table class="table">
+          <table class="table table-hover">
             <thead>
               <tr>
                 <th class="panel-heading">#</th>
@@ -61,10 +61,10 @@
                 </td>
               </tr>
             {% endfor %}
-           
+
             </tbody>
           </table>
-          
+
 
 
 <nav>
@@ -79,9 +79,9 @@
         <li><a><span class="active"><b>{{ num }}</b></span></a></li>
         {% else %}
         <li><a href="?{{course_url}}page={{ num }}"> {{ num }}</a></li>
-        {% endif %} 
+        {% endif %}
     {% endfor %}
-    
+
     <!--Если есть следующая страница - то ссылка "вперед"-->
     {% if  page_obj.has_next %}
      <li><a href="?{{course_url}}page={{ page_obj.next_page_number }}">next >></a></li>
